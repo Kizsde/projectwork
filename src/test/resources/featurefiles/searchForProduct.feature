@@ -1,14 +1,24 @@
 Feature: A specific product can be found using the "Search" function on the page
 
-    Rule: Test for searching and finding a specific product
-
     Background:
         Given I open Tesco page
-        When I accept cookies
+        And I accept cookies
 
-    Scenario: Search for a specific product by name
-        Given I am on the main page
-        When I enter a product in the Search field
-        When I click on the search icon
-        Then the appropriate product is found and displayed
+    Rule: Test for searching and finding/not finding a specific product
+
+        Scenario: Search for a specific product by name (társasjáték)
+            When I search for "társasjáték"
+            Then products are displayed that contain "társasjáték"
+
+    Rule: If search with empty input search is not available
+
+        Scenario: Search with an empty input
+            When I search for ""
+            Then the search function does nothing and stays on the same page
+
+    Rule: If search for a non-existing product a message displayed
+
+        Scenario: Search for a non existing product (asdf)
+            When I search for "asdf"
+            Then a message is displayed that the search didn't find anything
 
