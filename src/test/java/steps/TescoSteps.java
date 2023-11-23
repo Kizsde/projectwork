@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import tesco.pages.HomePage;
+import tesco.pages.NoProductFoundPage;
 import tesco.pages.SearchResultPage;
 
 import java.time.Duration;
@@ -58,16 +59,20 @@ public class TescoSteps {
         SearchResultPage searchResultPage = new SearchResultPage(driver);
         searchResultPage.validateSearchResultName(displayedProduct);
     }
-}
+
 /*
     @Then("the search function does nothing and stays on the same page")
     public void emptyInputSearch() {
     }
 
+ */
+
     @Then("a message is displayed that the search didn't find anything")
     public void noProductFoundMessage() {
+        NoProductFoundPage noProductFoundPage = new NoProductFoundPage(driver);
+        noProductFoundPage.validateNoSearchResult();
     }
 
 }
 
- */
+

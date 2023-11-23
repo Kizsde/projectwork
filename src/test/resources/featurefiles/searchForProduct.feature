@@ -16,9 +16,9 @@ Feature: A specific product can be found using the "Search" function on the page
 #            When I search for ""
 #            Then the search function does nothing and stays on the same page
 #
-#    Rule: If search for a non-existing product a message displayed
-#
-#        Scenario: Search for a non existing product (asdf)
-#            When I search for "asdf"
-#            Then a message is displayed that the search didn't find anything
+    Rule: If search for a non-existing product a message displayed
+
+        Scenario: Search for a non existing product (asdf)
+            When I search for "asdf"
+            Then a message is displayed that the search didn't find anything
 
